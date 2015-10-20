@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Computer Science Math Converter</string>
+    <string name="action_settings">Settings</string>
+    <string name="strHint">Please input value to convert</string>
+    <string name="strFrom">Convert From</string>
+    <string name="strTo">To</string>
+    <string name="strFinal">Final Value is:</string>
+    <string name="strCalc">Calculate</string>
+</resources>
