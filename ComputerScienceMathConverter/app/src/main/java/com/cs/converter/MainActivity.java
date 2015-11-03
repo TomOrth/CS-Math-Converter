@@ -82,5 +82,8 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         if(from.equals("Hexadecimal") && to.equals("Decimal")){
             tvFinal.setText("Final Value is: " + Converter.hexToDec(con));
         }
+        else if(from.equals("Octal") && to.equals("Decimal")){
+            tvFinal.setText(Converter.octToDec(con));
+        }
     }
 }

@@ -40,5 +40,29 @@ public class Converter {
         }
         return String.valueOf(finalAnswer);
     }
+    public static String octToDec(String value){
+        int finalAnswer = 0;
+        char tempData[] = value.toCharArray();
+        String ret  = "";
+        boolean isValid = true;
+        for(int x = 0; x < tempData.length; ++x) {
+            StringBuilder build = new StringBuilder(tempData[x]);
+            if (build.toString().contains("8")) {
+                isValid = false;
+                break;
+            }
+            else {
+                finalAnswer += Integer.parseInt(build.toString()) * Math.pow(16, (tempData.length - 1) - x);
+            }
+
+        }
+        if(!isValid){
+            ret = "Octal input invalid";
+        }
+        else{
+            ret = "Final Answer is: " + String.valueOf(ret);
+        }
+        return ret;
+    }
 
 }
