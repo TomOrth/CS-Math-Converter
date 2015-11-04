@@ -85,5 +85,8 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         else if(from.equals("Octal") && to.equals("Decimal")){
             tvFinal.setText(Converter.octToDec(con));
         }
+        else if(from.equals("Binary") && to.equals("Decimal")){
+            tvFinal.setText(Converter.binToDec(con));
+        }
     }
 }
