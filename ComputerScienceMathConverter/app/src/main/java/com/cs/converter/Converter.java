@@ -94,5 +94,36 @@ public class Converter {
         }
         return ret;
     }
+    public static String decToBin(String value){
+        String finalAns = "", START = "Final Value is: ";
+        int iValue = Integer.parseInt(value);
+        boolean isGrow = true;
+        int power = 1;
+        while(isGrow){
+            if(iValue/Math.pow(2, power) < 2 && iValue/Math.pow(2, power) >= 1) {
+                iValue -= Math.pow(2, power);
+                Log.d("Power", String.valueOf(power));
+                Log.d("iValue", String.valueOf(iValue));
+                finalAns += "1";
+                isGrow = false;
+            }
+            else{
+                power++;
+            }
+        }
+        for(int b = power - 1; b >= 0; --b){
+            if(iValue/Math.pow(2, b) < 2 && iValue/Math.pow(2, b) >= 1){
+                iValue -= Math.pow(2, b);
+                finalAns += "1";
+            }
+            else if(iValue/Math.pow(2, b) < 1){
+                finalAns += "0";
+            }
+            else if(iValue == 0){
+                break;
+            }
+        }
+        return START + finalAns;
+    }
 
 }
