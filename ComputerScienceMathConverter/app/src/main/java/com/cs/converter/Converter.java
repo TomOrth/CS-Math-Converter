@@ -2,7 +2,9 @@ package com.cs.converter;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by tom on 10/24/15.
@@ -123,6 +125,60 @@ public class Converter {
                 break;
             }
         }
+        return START + finalAns;
+    }
+    public static String decToOct(String value) {
+        String finalAns = "", START = "Final Value is: ";
+        int dValue = Integer.parseInt(value);
+        int start = 0;
+        boolean isPower = true;
+        int power = 1;
+        while (isPower) {
+            if (dValue / Math.pow(8, power) >= 1) {
+                power++;
+            } else if (dValue / Math.pow(8, power) < 1) {
+                isPower = false;
+            }
+
+        }
+        for (int i = power; i > 0; --i) {
+            finalAns += String.valueOf(((int)((dValue) / Math.pow(8, i))));
+            dValue -= ((int)(dValue / Math.pow(8, i))) * Math.pow(8, i);
+
+        }
+        finalAns += String.valueOf(dValue);
+        int temp = Integer.parseInt(finalAns);
+        finalAns = String.valueOf(temp);
+        return START + finalAns;
+    }
+    public static String decToHex(String value) {
+        String finalAns = "", START = "Final Value is: ";
+        int dValue = Integer.parseInt(value);
+        int start = 0;
+        boolean isPower = true;
+        int power = 1;
+        while (isPower) {
+            if (dValue / Math.pow(16, power) >= 1) {
+                power++;
+            } else if (dValue / Math.pow(16, power) < 1) {
+                isPower = false;
+            }
+
+        }
+        for (int i = power; i > 0; --i) {
+            finalAns += String.valueOf(((int)((dValue) / Math.pow(16, i))));
+            dValue -= ((int)(dValue / Math.pow(16, i))) * Math.pow(16, i);
+
+        }
+        finalAns += String.valueOf(dValue);
+        int temp = Integer.parseInt(finalAns);
+        finalAns = String.valueOf(temp);
+        finalAns = finalAns.replaceAll("10", "A");
+        finalAns = finalAns.replaceAll("11", "B");
+        finalAns = finalAns.replaceAll("12", "C");
+        finalAns = finalAns.replaceAll("13", "D");
+        finalAns = finalAns.replaceAll("14", "E");
+        finalAns = finalAns.replaceAll("15", "F");
         return START + finalAns;
     }
 
