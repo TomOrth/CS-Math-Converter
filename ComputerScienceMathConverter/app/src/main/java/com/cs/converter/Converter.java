@@ -13,7 +13,8 @@ public class Converter {
 
     public static String hexToDec(String val){
         //Convert
-
+        if(val == "NA")
+            return "Invalid";
         int finalAnswer = 0;
         char tempData[] = val.toCharArray();
         //Final conversion step
@@ -46,6 +47,8 @@ public class Converter {
     }
     public static String octToDec(String value){
         int finalAnswer = 0;
+        if(value == "NA")
+            return "Invalid";
         char tempData[] = value.toCharArray();
         Log.d("dataRec", value);
         String ret  = "";
@@ -65,7 +68,7 @@ public class Converter {
             Log.d("return", ret);
         }
         else{
-            ret = "Final Value is: " + String.valueOf(finalAnswer);
+            ret = String.valueOf(finalAnswer);
             Log.d("return", ret);
         }
         return ret;
@@ -76,6 +79,8 @@ public class Converter {
         Log.d("dataRec", value);
         String ret  = "";
         boolean isValid = true;
+        if(value == "NA")
+            return "Invalid";
         for(int x = 0; x < tempData.length; ++x) {
             if (Character.getNumericValue(tempData[x]) > 1) {
                 isValid = false;
@@ -87,20 +92,22 @@ public class Converter {
 
         }
         if(!isValid){
-            ret = "Binary input invalid";
+            ret = "NA";
             Log.d("return", ret);
         }
         else{
-            ret = "Final Value is: " + String.valueOf(finalAnswer);
+            ret = String.valueOf(finalAnswer);
             Log.d("return", ret);
         }
         return ret;
     }
     public static String decToBin(String value){
-        String finalAns = "", START = "Final Value is: ";
+        String finalAns = "";
         int iValue = Integer.parseInt(value);
         boolean isGrow = true;
         int power = 1;
+        if(value == "NA")
+            return "Invalid";
         while(isGrow){
             if(iValue/Math.pow(2, power) < 2 && iValue/Math.pow(2, power) >= 1) {
                 iValue -= Math.pow(2, power);
@@ -125,14 +132,16 @@ public class Converter {
                 break;
             }
         }
-        return START + finalAns;
+        return finalAns;
     }
     public static String decToOct(String value) {
-        String finalAns = "", START = "Final Value is: ";
+        String finalAns = "";
         int dValue = Integer.parseInt(value);
         int start = 0;
         boolean isPower = true;
         int power = 1;
+        if(value == "NA")
+            return "Invalid";
         while (isPower) {
             if (dValue / Math.pow(8, power) >= 1) {
                 power++;
@@ -149,14 +158,16 @@ public class Converter {
         finalAns += String.valueOf(dValue);
         int temp = Integer.parseInt(finalAns);
         finalAns = String.valueOf(temp);
-        return START + finalAns;
+        return finalAns;
     }
     public static String decToHex(String value) {
-        String finalAns = "", START = "Final Value is: ";
+        String finalAns = "";
         int dValue = Integer.parseInt(value);
         int start = 0;
         boolean isPower = true;
         int power = 1;
+        if(value == "NA")
+            return "Invalid";
         while (isPower) {
             if (dValue / Math.pow(16, power) >= 1) {
                 power++;
@@ -179,7 +190,7 @@ public class Converter {
         finalAns = finalAns.replaceAll("13", "D");
         finalAns = finalAns.replaceAll("14", "E");
         finalAns = finalAns.replaceAll("15", "F");
-        return START + finalAns;
+        return finalAns;
     }
 
 }

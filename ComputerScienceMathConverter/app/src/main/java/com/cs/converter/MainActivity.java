@@ -82,20 +82,38 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         if(from.equals("Hexadecimal") && to.equals("Decimal")){
             tvFinal.setText("Final Value is: " + Converter.hexToDec(con));
         }
+        else if(from.equals("Hexadecimal") && to.equals("Binary")){
+            tvFinal.setText("Final Value is: " + Converter.decToBin(Converter.hexToDec(con)));
+        }
+        else if(from.equals("Hexadecimal") && to.equals("Octal")){
+            tvFinal.setText("Final Value is: " + Converter.decToOct(Converter.hexToDec(con)));
+        }
         else if(from.equals("Octal") && to.equals("Decimal")){
-            tvFinal.setText(Converter.octToDec(con));
+            tvFinal.setText("Final Value is: " +Converter.octToDec(con));
+        }
+        else if(from.equals("Octal") && to.equals("Binary")){
+            tvFinal.setText("Final Value is: " + Converter.decToBin(Converter.octToDec(con)));
+        }
+        else if(from.equals("Octal") && to.equals("Hexadecimal")){
+            tvFinal.setText("Final Value is: " + Converter.decToHex(Converter.octToDec(con)));
         }
         else if(from.equals("Binary") && to.equals("Decimal")){
-            tvFinal.setText(Converter.binToDec(con));
+            tvFinal.setText("Final Value is: " +Converter.binToDec(con));
+        }
+        else if(from.equals("Binary") && to.equals("Hexadecimal")){
+            tvFinal.setText("Final Value is: " + Converter.decToHex(Converter.binToDec(con)));
+        }
+        else if(from.equals("Binary") && to.equals("Octal")){
+            tvFinal.setText("Final Value is: " + Converter.decToOct(Converter.binToDec(con)));
         }
         else if(from.equals("Decimal") && to.equals("Binary")){
-            tvFinal.setText(Converter.decToBin(con));
+            tvFinal.setText("Final Value is: " +Converter.decToBin(con));
         }
         else if(from.equals("Decimal") && to.equals("Octal")){
-            tvFinal.setText(Converter.decToOct(con));
+            tvFinal.setText("Final Value is: " +Converter.decToOct(con));
         }
         else if(from.equals("Decimal") && to.equals("Hexadecimal")){
-            tvFinal.setText(Converter.decToHex(con));
+            tvFinal.setText("Final Value is: " + Converter.decToHex(con));
         }
     }
 }
